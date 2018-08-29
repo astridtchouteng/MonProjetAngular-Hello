@@ -1,0 +1,28 @@
+<form #f="ngForm" (ngSubmit)="addProduit()">
+    <div class="form-group row">
+          <label for="code" class="col-sm-2 col-form-label">Code Produit</label>
+
+        <input type="text" [(ngModel)]="produit.code" name="code" id="code"
+           placeholder="Exemple. P100" #code="ngModel" required>
+
+        <div class="alert alert-danger" *ngIf="code.touched && code.invalid">Le code est obligatoire</div>
+    </div>
+    <div class="form-group row">
+      <label for="titre" class="col-sm-2 col-form-label">Titre </label>
+      <input type="text" [(ngModel)]="produit.titre" name="titre" id="titre"
+           placeholder="Exemple. Book" #titre="ngModel" minlength="3" required>
+
+        <div class="alert alert-danger" *ngIf="titre.touched && titre.invalid">
+           <div *ngIf="titre.errors.required" >  Le titre est requis </div>
+            <div *ngIf="titre.errors.minlength">Minimum trois caratères</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="prix" class="col-sm-2 col-form-label">Prix </label>
+        <input type="number" [(ngModel)]="produit.prixUnitaire" name="prix" id="prix"
+           placeholder="Exemple. 4.5" #prix="ngModel" required >
+
+        <div class="alert alert-danger" *ngIf="prix.touched && prix.invalid">Le prix est obligatoire</div>
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Create</button>
+  </form>

@@ -1,0 +1,28 @@
+<h1>
+  Code du produit : {{code}}
+</h1>
+<div class="card" class="mt-3">
+    <div class="card-header text-white bg-info">
+      <!-- <h5>Détail du produit {{code}} </h5> -->
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <tbody>
+              <tr>
+                <td>Code</td>
+                <td>{{produit?.code}}</td>
+              </tr>
+              <tr>
+                <td>Titre</td>
+                <td>{{produit?.titre}}</td>
+              </tr>
+              <tr>
+                <td>PrixUnitaire</td>
+                <td>{{produit?.prixUnitaire | currency:"EUR":"symbol"}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+  </div>
+<button type="button" class="btn btn-outline-info" (click)= "navigateToList()" > Next </button>
